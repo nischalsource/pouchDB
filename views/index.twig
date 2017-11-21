@@ -1,0 +1,52 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+  <h1>{{title}}</h1>
+  <p>Welcome to a {{title}} Demo - Record {{count}}</p>
+
+<form method="post" action="/">
+  <div class="row">
+    <div class="six columns">
+      <label for="exampleEmailInput">Your email</label>
+       <select class="u-full-width" id="email" type="email" name="email">
+        <option value="guy@mail.com">guy@mail.com</option>
+        <option value="girl@mail.com">girl@mail.com</option>
+        <option value="trans@mail.com">trans@mail.com</option>
+      </select>
+    </div>
+    <div class="six columns">
+      <label for="exampleRecipientInput">Reason for contacting</label>
+      <select class="u-full-width" id="contactReason" name="contactReason">
+        <option value="Questions">Questions</option>
+        <option value="Problems">Problems</option>
+        <option value="Commendations">Commendations</option>
+      </select>
+    </div>
+  </div>
+  <label for="exampleMessage">Message</label>
+  <textarea class="u-full-width" placeholder="Hi Dave …" id="comment" name="comment"></textarea>
+  <label class="example-send-yourself-copy">
+    <input type="checkbox">
+    <span class="label-body">Send a copy to yourself</span>
+  </label>
+  <input class="button-primary" value="Submit" type="submit">
+</form>
+
+<script>
+    
+    var email = generateEmail();
+    console.log(email);
+    document.getElementById('email').value = email;
+
+    var reason = generateReason();
+    console.log(reason);
+    document.getElementById('contactReason').value = reason;
+
+    var comment = generateComment();
+    console.log(comment);
+    document.getElementById("comment").innerHTML = comment;
+
+
+</script>
+
+{% endblock %}
